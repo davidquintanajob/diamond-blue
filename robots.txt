@@ -1,6 +1,2 @@
-# START nuxt-robots (indexable)
-User-agent: *
-Disallow: 
-
-Sitemap: https://diamondbluepoolservices.com/sitemap.xml
-# END nuxt-robots
+User-Agent: *
+Disallow:
