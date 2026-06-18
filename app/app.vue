@@ -4,7 +4,7 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur shadow">
       <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <div class="flex items-center gap-3">
-          <img src="/logo.png" class="h-12 w-auto" alt="Diamond Blue Logo" />
+          <NuxtImg src="/logo.png" class="h-12 w-auto" alt="Diamond Blue Logo" />
           <div>
             <h1 class="font-bold text-xl text-[#003B8E]">Diamond Blue</h1>
             <p class="text-xs text-slate-500">Pools & Spa</p>
@@ -29,8 +29,7 @@
           <!-- Language switcher con íconos (muestra el idioma actual) -->
           <button @click="toggleLang"
             class="flex items-center gap-1.5 text-sm font-medium text-[#003B8E] bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full transition-all shadow-sm hover:shadow">
-            <img :src="langIcon" class="w-5 h-5 rounded-full object-cover"
-              :alt="lang === 'en' ? 'English' : 'Spanish'" />
+            <NuxtImg :src="langIcon" class="w-5 h-5 rounded-full object-cover" :alt="lang === 'en' ? 'English' : 'Spanish'" />
             {{ lang === 'en' ? 'EN' : 'ES' }}
           </button>
 
@@ -39,8 +38,9 @@
             {{ t('nav.call') }}
           </a>
 
-          <!-- Botón hamburguesa (solo móvil) -->
-          <button @click="toggleMenu" class="md:hidden text-[#003B8E] hover:text-[#00245C] focus:outline-none"
+          <!-- Botón hamburguesa (solo móvil) - ahora más visible -->
+          <button @click="toggleMenu"
+            class="md:hidden text-[#003B8E] hover:text-[#00245C] focus:outline-none bg-white/80 p-1.5 rounded-full shadow-md border border-blue-100 hover:bg-blue-50 transition"
             aria-label="Toggle menu">
             <svg v-if="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -113,75 +113,78 @@
         </div>
       </div>
     </div>
-<!-- Hero -->
-<section
-  id="home"
-  class="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0"
->
-  <!-- Wallpaper -->
-  <img
-    src="/wallpaper.avif"
-    class="absolute inset-0 w-full h-full object-cover"
-    alt="Pool background"
-  />
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-[#00245C]/70"></div>
-
-  <!-- Contenido (texto y logo) -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center w-full py-12 md:py-0">
-    <div class="text-white animate-fade-up text-center md:text-left" style="animation-delay: 0.1s">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight animate-fade-up" style="animation-delay: 0.2s">
-        {{ t('hero.title') }}
-      </h2>
-      <p class="mt-4 md:mt-6 text-base md:text-lg text-blue-100 animate-fade-up" style="animation-delay: 0.3s">
-        {{ t('hero.subtitle') }}
-      </p>
-      <div class="mt-6 md:mt-8 flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 animate-fade-up" style="animation-delay: 0.4s">
-        <a href="#services" class="bg-cyan-400 hover:bg-cyan-500 text-[#003B8E] font-bold px-4 py-2 md:px-6 md:py-3 rounded-full transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm md:text-base">
-          {{ t('hero.servicesBtn') }}
-        </a>
-        <a href="tel:9419293944" class="border border-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-[#003B8E] transition transform hover:-translate-y-1 text-sm md:text-base">
-          (941) 929-3944
-        </a>
-        <a :href="whatsappLink" target="_blank" class="bg-[#25D366] hover:bg-[#1DA85E] text-white font-bold px-4 py-2 md:px-6 md:py-3 rounded-full flex items-center gap-2 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm md:text-base">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-5 md:h-5">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
-          </svg>
-          {{ t('hero.whatsapp') }}
-        </a>
-      </div>
-    </div>
-
-    <div class="flex justify-center animate-logo mt-6 md:mt-0">
-      <img src="/logo-borde-blanco.png" class="w-48 sm:w-56 md:w-80 drop-shadow-2xl" alt="Logo" />
-    </div>
-  </div>
-
-  <!-- Onda inferior (superpuesta) -->
-  <div
-    class="absolute left-0 w-full pointer-events-none"
-    style="bottom: -2px; height: 120px; z-index: 5; overflow: visible;"
-  >
-    <svg
-      viewBox="0 0 2400 120"
-      preserveAspectRatio="none"
-      style="display: block; width: 200%; height: 120px; animation: waveMove 8s linear infinite;"
+    <!-- Hero -->
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0"
     >
-      <!-- Onda principal (blanca) -->
-      <path
-        d="M0,40 C300,80 600,0 900,40 C1200,80 1500,0 1800,40 C2100,80 2400,0 2400,40 L2400,120 L0,120 Z"
-        fill="#ffffff"
+      <!-- Wallpaper -->
+      <NuxtImg
+        src="/wallpaper.avif"
+        class="absolute inset-0 w-full h-full object-cover"
+        alt="Pool background"
+        loading="eager"
+        format="avif"
       />
-      <!-- Segunda onda (blanca semitransparente, con desfase) -->
-      <path
-        d="M0,60 C400,20 800,100 1200,60 C1600,20 2000,100 2400,60 L2400,120 L0,120 Z"
-        fill="rgba(255,255,255,0.4)"
-        style="animation: waveMove 12s linear infinite reverse;"
-      />
-    </svg>
-  </div>
-</section>
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-[#00245C]/70"></div>
+
+      <!-- Contenido (texto y logo) -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center w-full py-12 md:py-0">
+        <div class="text-white animate-fade-up text-center md:text-left" style="animation-delay: 0.1s">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight animate-fade-up" style="animation-delay: 0.2s">
+            {{ t('hero.title') }}
+          </h2>
+          <p class="mt-4 md:mt-6 text-base md:text-lg text-blue-100 animate-fade-up" style="animation-delay: 0.3s">
+            {{ t('hero.subtitle') }}
+          </p>
+          <div class="mt-6 md:mt-8 flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 animate-fade-up" style="animation-delay: 0.4s">
+            <a href="#services" class="bg-cyan-400 hover:bg-cyan-500 text-[#003B8E] font-bold px-4 py-2 md:px-6 md:py-3 rounded-full transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm md:text-base">
+              {{ t('hero.servicesBtn') }}
+            </a>
+            <a href="tel:9419293944" class="border border-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-[#003B8E] transition transform hover:-translate-y-1 text-sm md:text-base">
+              (941) 929-3944
+            </a>
+            <a :href="whatsappLink" target="_blank" class="bg-[#25D366] hover:bg-[#1DA85E] text-white font-bold px-4 py-2 md:px-6 md:py-3 rounded-full flex items-center gap-2 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm md:text-base">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-5 md:h-5">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
+              </svg>
+              {{ t('hero.whatsapp') }}
+            </a>
+          </div>
+        </div>
+
+        <div class="flex justify-center animate-logo mt-6 md:mt-0">
+          <NuxtImg src="/logo-borde-blanco.png" class="w-48 sm:w-56 md:w-80 drop-shadow-2xl" alt="Diamond Blue Logo border white" />
+        </div>
+      </div>
+
+      <!-- Onda inferior (superpuesta) -->
+      <div
+        class="absolute left-0 w-full pointer-events-none"
+        style="bottom: -2px; height: 120px; z-index: 5; overflow: visible;"
+      >
+        <svg
+          viewBox="0 0 2400 120"
+          preserveAspectRatio="none"
+          style="display: block; width: 200%; height: 120px; animation: waveMove 8s linear infinite;"
+        >
+          <!-- Onda principal (blanca) -->
+          <path
+            d="M0,40 C300,80 600,0 900,40 C1200,80 1500,0 1800,40 C2100,80 2400,0 2400,40 L2400,120 L0,120 Z"
+            fill="#ffffff"
+          />
+          <!-- Segunda onda (blanca semitransparente, con desfase) -->
+          <path
+            d="M0,60 C400,20 800,100 1200,60 C1600,20 2000,100 2400,60 L2400,120 L0,120 Z"
+            fill="rgba(255,255,255,0.4)"
+            style="animation: waveMove 12s linear infinite reverse;"
+          />
+        </svg>
+      </div>
+    </section>
 
     <!-- Services -->
     <section id="services" class="py-16 md:py-20 max-w-7xl mx-auto px-6">
@@ -200,7 +203,7 @@
             class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 z-10 transition-all duration-500"
             :class="{ 'transform -translate-y-16': isActive(service.key) || hoveredService === service.key }">
             <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg mb-3">
-              <img :src="service.icon" class="w-10 h-10 object-contain service-icon" :alt="service.title" />
+              <NuxtImg :src="service.icon" class="w-10 h-10 object-contain service-icon" :alt="service.title" />
             </div>
             <h3 class="text-xl md:text-2xl font-bold text-center">{{ service.title }}</h3>
           </div>
@@ -215,15 +218,16 @@
         </div>
       </div>
     </section>
-
+    <template v-if="false">
     <!-- About -->
     <section id="about" class="py-16 md:py-20 bg-white overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
         <div class="relative h-80 md:h-96 w-full">
-          <img :src="wallpapers[(currentWallpaperIndex + 1) % wallpapers.length]"
+          <NuxtImg :src="wallpapers[(currentWallpaperIndex + 1) % wallpapers.length]"
             class="absolute w-[90%] h-full object-cover rounded-3xl shadow-lg transition-all duration-700"
-            :style="{ left: '5%', top: '10%', transform: 'scale(0.95)', filter: 'brightness(0.85)', zIndex: 1 }" />
-          <img :src="currentWallpaper"
+            :style="{ left: '5%', top: '10%', transform: 'scale(0.95)', filter: 'brightness(0.85)', zIndex: 1 }"
+            alt="Pool background wallpaper secondary" loading="lazy" />
+          <NuxtImg :src="currentWallpaper"
             class="absolute w-[90%] h-full object-cover rounded-3xl shadow-2xl transition-all duration-700" :style="{
               left: '5%',
               top: isCardUp ? '-5%' : '10%',
@@ -231,7 +235,7 @@
               zIndex: 2,
               opacity: isCardUp ? 1 : 0.7,
               boxShadow: isCardUp ? '0 20px 50px rgba(0,0,0,0.5)' : '0 10px 30px rgba(0,0,0,0.3)'
-            }" />
+            }" alt="Pool background wallpaper main" loading="lazy" />
         </div>
         <div class="animate-slide-right">
           <h2 class="text-3xl md:text-4xl font-bold text-[#003B8E] mb-6">{{ t('about.title') }}</h2>
@@ -272,9 +276,9 @@
             <div v-for="(img, idx) in residentialImages" :key="idx"
               class="min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-black/10 cursor-pointer relative overflow-hidden group/image"
               @click="openLightbox(img)">
-              <img :src="img"
+              <NuxtImg :src="img"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105"
-                :alt="'Residential pool ' + (idx + 1)" />
+                :alt="'Residential pool ' + (idx + 1)" loading="lazy" />
               <div
                 class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                 <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -320,9 +324,9 @@
             <div v-for="(img, idx) in spaImages" :key="idx"
               class="min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-black/10 cursor-pointer relative overflow-hidden group/image"
               @click="openLightbox(img)">
-              <img :src="img"
+              <NuxtImg :src="img"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105"
-                :alt="'Spa or personal pool ' + (idx + 1)" />
+                :alt="'Spa or personal pool ' + (idx + 1)" loading="lazy" />
               <div
                 class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                 <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -428,26 +432,26 @@
         {{ t('cta.button') }}
       </a>
     </section>
-
+    </template>
     <!-- Footer -->
     <footer class="bg-[#00245C] text-white py-8" id="footer">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-left animate-fade-up">
         <div>
-          <img src="/logo-borde-blanco.png" class="h-16 mx-auto md:mx-0 mb-4" alt="Logo" />
+          <NuxtImg src="/logo-borde-blanco.png" class="h-16 mx-auto md:mx-0 mb-4" alt="Diamond Blue Logo" />
           <p class="text-blue-200">Diamond Blue Pools & Spa</p>
           <p class="text-sm text-blue-300 mt-1">{{ t('footer.tagline') }}</p>
         </div>
         <div>
           <h4 class="font-bold text-lg mb-3">{{ t('footer.contact') }}</h4>
           <p><a href="tel:9419293944" class="hover:text-cyan-300 transition">(941) 929-3944</a></p>
-          <p><a href="mailto:info@diamondbluepools.com"
-              class="hover:text-cyan-300 transition">info@diamondbluepools.com</a></p>
+          <p><a href="mailto:diamondbluepoolspa@gmail.com"
+              class="hover:text-cyan-300 transition">diamondbluepoolspa@gmail.com</a></p>
           <p class="text-blue-200">{{ t('footer.address') }}</p>
         </div>
         <div>
           <h4 class="font-bold text-lg mb-3">{{ t('footer.serviceArea') }}</h4>
-          <p class="text-blue-200">Bradenton, Sarasota, Palmetto</p>
-          <p class="text-blue-200">Lakewood Ranch & Anna Maria Island</p>
+          <p class="text-blue-200">Bradenton, Palmetto, Lakewood Ranch</p>
+          <p class="text-blue-200">Anna Maria Island & surrounding areas</p>
           <div class="flex justify-center md:justify-start gap-4 mt-3">
             <a href="#" class="text-blue-200 hover:text-cyan-300 transition" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
@@ -483,7 +487,7 @@
     <!-- Lightbox -->
     <div v-if="lightboxImage" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center cursor-pointer"
       @click="closeLightbox">
-      <img :src="lightboxImage" class="max-w-11/12 max-h-11/12 object-contain" />
+      <NuxtImg :src="lightboxImage" class="max-w-11/12 max-h-11/12 object-contain" alt="Lightbox image" loading="lazy" />
       <button class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
     </div>
   </div>
@@ -491,7 +495,10 @@
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useHead } from '#app'
+import { useHead, useSeoMeta, useRoute } from '#app'
+
+const route = useRoute()
+const siteUrl = 'https://diamondbluepools.com' // Ajusta según tu variable de entorno
 
 // Language
 const lang = ref('en')
@@ -512,8 +519,8 @@ const translations = {
   en: {
     nav: { home: 'Home', about: 'About', services: 'Services', gallery: 'Gallery', contact: 'Contact Us', call: 'Call Now' },
     hero: {
-      title: 'Professional Pool Cleaning & Maintenance in Miami',
-      subtitle: 'Crystal clear water, reliable maintenance and professional service for residential and commercial pools in Miami and surrounding areas.',
+      title: 'Professional Pool Cleaning & Maintenance in Manatee County',
+      subtitle: 'Crystal clear water, reliable maintenance and professional service for residential and commercial pools in Manatee County and surrounding areas.',
       servicesBtn: 'Our Services',
       whatsapp: 'Chat on WhatsApp'
     },
@@ -523,7 +530,7 @@ const translations = {
     },
     about: {
       title: 'Why Choose Diamond Blue?',
-      p1: 'Diamond Blue Pools provides comprehensive pool cleaning and maintenance services in Miami. Our team ensures every pool we service is spotless, safe, and fully operational so you can enjoy it all year long.',
+      p1: 'Diamond Blue Pools provides comprehensive pool cleaning and maintenance services in Manatee County. Our team ensures every pool we service is spotless, safe, and fully operational so you can enjoy it all year long.',
       p2: 'We take pride in providing professional and dependable pool services, backed by years of expertise. Our priority is to keep your pool clean and well-maintained while delivering an excellent customer experience.'
     },
     gallery: {
@@ -552,7 +559,7 @@ const translations = {
     footer: {
       tagline: 'Professional Pool Care & Maintenance',
       contact: 'Contact Info',
-      address: 'Miami, FL',
+      address: 'Manatee County, FL',
       serviceArea: 'Service Area',
       rights: 'All rights reserved.'
     }
@@ -560,8 +567,8 @@ const translations = {
   es: {
     nav: { home: 'Inicio', about: 'Nosotros', services: 'Servicios', gallery: 'Galería', contact: 'Contacto', call: 'Llamar ahora' },
     hero: {
-      title: 'Limpieza y Mantenimiento Profesional de Piscinas en Miami',
-      subtitle: 'Agua cristalina, mantenimiento confiable y servicio profesional para piscinas residenciales y comerciales en Miami y áreas circundantes.',
+      title: 'Limpieza y Mantenimiento Profesional de Piscinas en el Condado de Manatee',
+      subtitle: 'Agua cristalina, mantenimiento confiable y servicio profesional para piscinas residenciales y comerciales en el Condado de Manatee y áreas circundantes.',
       servicesBtn: 'Nuestros Servicios',
       whatsapp: 'Chatea por WhatsApp'
     },
@@ -571,7 +578,7 @@ const translations = {
     },
     about: {
       title: '¿Por qué elegir Diamond Blue?',
-      p1: 'Diamond Blue Pools ofrece servicios integrales de limpieza y mantenimiento de piscinas en Miami. Nuestro equipo garantiza que cada piscina que servimos esté impecable, segura y en pleno funcionamiento para que la disfrutes todo el año.',
+      p1: 'Diamond Blue Pools ofrece servicios integrales de limpieza y mantenimiento de piscinas en el Condado de Manatee. Nuestro equipo garantiza que cada piscina que servimos esté impecable, segura y en pleno funcionamiento para que la disfrutes todo el año.',
       p2: 'Nos enorgullecemos de ofrecer servicios profesionales y confiables, respaldados por años de experiencia. Nuestra prioridad es mantener tu piscina limpia y bien cuidada, brindando una excelente experiencia al cliente.'
     },
     gallery: {
@@ -600,7 +607,7 @@ const translations = {
     footer: {
       tagline: 'Cuidado y Mantenimiento Profesional de Piscinas',
       contact: 'Información de Contacto',
-      address: 'Miami, FL',
+      address: 'Condado de Manatee, FL',
       serviceArea: 'Área de Servicio',
       rights: 'Todos los derechos reservados.'
     }
@@ -799,193 +806,177 @@ onMounted(() => {
 })
 onBeforeUnmount(() => { if (observer) observer.disconnect() })
 
-// SEO
+// ============================================================
+//  🚀 OPTIMIZACIÓN SEO (sin dependencia de #nuxt/og-image)
+// ============================================================
+
+// Metadatos computados según idioma
+const seoTitle = computed(() =>
+  lang.value === 'en'
+    ? 'Diamond Blue Pools & Spa – Pool Cleaning & Maintenance in Manatee County'
+    : 'Diamond Blue Pools & Spa – Limpieza y Mantenimiento de Piscinas en el Condado de Manatee'
+)
+
+const seoDescription = computed(() =>
+  lang.value === 'en'
+    ? 'Professional pool cleaning, maintenance, repair and renovation services for residential and commercial pools in Manatee County and surrounding areas. Call (941) 929-3944.'
+    : 'Servicios profesionales de limpieza, mantenimiento, reparación y renovación de piscinas residenciales y comerciales en el Condado de Manatee y áreas circundantes. Llama al (941) 929-3944.'
+)
+
+const seoKeywords = 'pool cleaning Manatee County, piscinas Condado de Manatee, limpieza de piscinas Manatee County, mantenimiento de piscinas Manatee County, pool service Manatee County, Diamond Blue Pools'
+
+// URL canónica (usando useRoute para futuras rutas)
+const canonicalUrl = computed(() => `${siteUrl}${route.path}`)
+
+// URLs alternativas para hreflang
+const enUrl = computed(() => `${siteUrl}${route.path}`)
+const esUrl = computed(() => `${siteUrl}${route.path}`)
+
+// Usamos useSeoMeta para todos los metadatos, incluyendo la imagen OG
+useSeoMeta({
+  title: seoTitle,
+  description: seoDescription,
+  keywords: seoKeywords,
+  ogTitle: seoTitle,
+  ogDescription: seoDescription,
+  ogImage: `${siteUrl}/seo.jpg`,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Diamond Blue Pools & Spa - Professional Pool Services',
+  ogUrl: canonicalUrl,
+  ogType: 'website',
+  ogSiteName: 'Diamond Blue Pools & Spa',
+  ogLocale: computed(() => lang.value === 'en' ? 'en_US' : 'es_ES'),
+  twitterCard: 'summary_large_image',
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
+  twitterImage: `${siteUrl}/seo.jpg`,
+  twitterImageAlt: 'Diamond Blue Pools & Spa - Professional Pool Services',
+  robots: 'index, follow, max-image-preview:large',
+  themeColor: '#0EA5E9',
+  msapplicationTileColor: '#0EA5E9',
+  appleMobileWebAppCapable: 'yes',
+  appleMobileWebAppStatusBarStyle: 'default',
+  geoRegion: 'US-FL',
+  geoPlacename: 'Manatee County',
+  geoPosition: '27.4957; -82.5742',
+  ICBM: '27.4957, -82.5742',
+})
+
 useHead({
-  htmlAttrs: { lang: lang.value === 'en' ? 'en-US' : 'es-ES' },
-  title: computed(() => lang.value === 'en' ? 'Diamond Blue Pools & Spa - Pool Cleaning Miami' : 'Diamond Blue Pools & Spa - Limpieza de Piscinas Miami'),
-  meta: [
-    { name: 'description', content: computed(() => lang.value === 'en' ? 'Professional pool cleaning and maintenance in Miami. Crystal clear water, reliable service for residential and commercial pools. Call (941) 929-3944.' : 'Limpieza profesional de piscinas en Miami. Agua cristalina, servicio confiable para piscinas residenciales y comerciales. Llama (941) 929-3944.') },
-    { name: 'keywords', content: 'pool cleaning Miami, piscinas Miami, limpieza de piscinas Miami, mantenimiento de piscinas Miami, pool service Miami, Diamond Blue Pools' },
-    { property: 'og:title', content: computed(() => lang.value === 'en' ? 'Diamond Blue Pools & Spa - Pool Cleaning Miami' : 'Diamond Blue Pools & Spa - Limpieza de Piscinas Miami') },
-    { property: 'og:description', content: computed(() => lang.value === 'en' ? 'Professional pool cleaning and maintenance in Miami.' : 'Limpieza y mantenimiento profesional de piscinas en Miami.') },
-    { property: 'og:image', content: '/logo.png' },
-    { property: 'og:url', content: 'https://diamondbluepools.com' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:locale', content: lang.value === 'en' ? 'en_US' : 'es_ES' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: computed(() => lang.value === 'en' ? 'Diamond Blue Pools & Spa - Pool Cleaning Miami' : 'Diamond Blue Pools & Spa - Limpieza de Piscinas Miami') },
-    { name: 'twitter:description', content: computed(() => lang.value === 'en' ? 'Professional pool cleaning and maintenance in Miami.' : 'Limpieza y mantenimiento profesional de piscinas en Miami.') },
-    { name: 'twitter:image', content: '/logo.png' },
-    { name: 'robots', content: 'index, follow' },
-    { name: 'geo.region', content: 'US-FL' },
-    { name: 'geo.placename', content: 'Miami' },
-    { name: 'geo.position', content: '25.7617;-80.1918' },
-    { name: 'ICBM', content: '25.7617, -80.1918' }
-  ],
+  htmlAttrs: {
+    lang: computed(() => lang.value === 'en' ? 'en-US' : 'es-ES'),
+  },
+  titleTemplate: (title) => title ? `${title}` : 'Diamond Blue Pools & Spa',
   link: [
-    { rel: 'canonical', href: 'https://diamondbluepools.com' },
-    { rel: 'alternate', hreflang: 'en', href: 'https://diamondbluepools.com' },
-    { rel: 'alternate', hreflang: 'es', href: 'https://diamondbluepools.com/es' }
+    { rel: 'canonical', href: canonicalUrl },
+    { rel: 'alternate', hreflang: 'en', href: enUrl },
+    { rel: 'alternate', hreflang: 'es', href: esUrl },
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}${route.path}` },
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
   ],
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Diamond Blue Pools & Spa",
-      "image": "/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Miami",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      },
-      "telephone": "(941) 929-3944",
-      "url": "https://diamondbluepools.com",
-      "priceRange": "$$",
-      "description": "Professional pool cleaning and maintenance services in Miami and surrounding areas.",
-      "areaServed": {
-        "@type": "Place",
-        "name": "Miami, Florida"
-      }
-    })
-  }]
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'Diamond Blue Pools & Spa',
+        image: `${siteUrl}/logo.png`,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Manatee County',
+          addressRegion: 'FL',
+          addressCountry: 'US',
+        },
+        telephone: '(941) 929-3944',
+        url: canonicalUrl.value,
+        priceRange: '$$',
+        description: seoDescription.value,
+        areaServed: {
+          '@type': 'Place',
+          name: 'Manatee County, Florida',
+        },
+        openingHours: 'Mo-Fr 08:00-18:00',
+        sameAs: [
+          'https://www.facebook.com/diamondbluepools',
+          'https://www.instagram.com/diamondbluepools',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '(941) 929-3944',
+          contactType: 'customer service',
+          availableLanguage: ['English', 'Spanish'],
+        },
+      }),
+    },
+  ],
 })
 </script>
 
 <style scoped>
 @keyframes diagonalFloat {
-  0% {
-    transform: translate(-5px, 3px);
-  }
-
-  50% {
-    transform: translate(5px, -3px);
-  }
-
-  100% {
-    transform: translate(-5px, 3px);
-  }
+  0% { transform: translate(-5px, 3px); }
+  50% { transform: translate(5px, -3px); }
+  100% { transform: translate(-5px, 3px); }
 }
-
 .animate-logo {
   animation: diagonalFloat 6s ease-in-out infinite;
 }
-
-/* Animaciones */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
-
 @keyframes pulseSlow {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
-
 .animate-fade-up {
   opacity: 0;
   animation: fadeUp 0.8s ease-out forwards;
 }
-
 .animate-slide-left {
   opacity: 0;
   animation: slideLeft 0.8s ease-out forwards;
 }
-
 .animate-slide-right {
   opacity: 0;
   animation: slideRight 0.8s ease-out forwards;
 }
-
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
-
 .animate-pulse-slow {
   animation: pulseSlow 2s ease-in-out infinite;
 }
-
-/* Filtro para íconos de servicios */
 .service-icon {
   filter: brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(2000%) hue-rotate(190deg);
 }
-
-/* Transiciones para tarjetas de servicio */
 .service-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
 .service-card:hover {
   transform: translateY(-4px);
 }
-
-.hero-wave {
-  clip-path: ellipse(120% 100% at 50% 0%);
-}
-
-@media (min-width: 768px) {
-  .hero-wave {
-    clip-path: path("M0,0 L0,90% C200,100% 450,82% 720,92% C980,100% 1200,84% 1440,90% L1440,0 Z"
-      );
-  }
-}
 @keyframes waveMove {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Se mueve la mitad del ancho porque el SVG mide 200% */
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 </style>
