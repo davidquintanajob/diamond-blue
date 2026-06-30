@@ -672,6 +672,13 @@
     "@floating-ui/utils" "^0.2.11"
     vue-demi ">=0.13.0"
 
+"@googlemaps/js-api-loader@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-2.1.1.tgz#49c2fa6cc2ad4eb49727d9f3572bae8ff519dbdf"
+  integrity sha512-yUpAwksbHrlZIWD49JmveNSfBG4oAK0AwMknfSaPMnP5N7UT8oFRVCqwjGb1XQovi//7KLbPQKZpbofiLGzpDw==
+  dependencies:
+    "@types/google.maps" "^3.53.1"
+
 "@iconify-json/carbon@^1.2.23":
   version "1.2.23"
   resolved "https://registry.yarnpkg.com/@iconify-json/carbon/-/carbon-1.2.23.tgz#1aed37d08c8ebaecc0676f88e14d88f5ca33aa79"
@@ -2711,6 +2718,11 @@
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.9.tgz#cf3f0e876d7bee15a93ab925b82bf570a3904a24"
   integrity sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==
+
+"@types/google.maps@^3.53.1":
+  version "3.65.2"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.65.2.tgz#49444106055b0b759ea85f09dab121ee151374ad"
+  integrity sha512-e52bmOhGCQSNabFpL48iQlwJybq6rfns8NUVJ20MR7CdPlHQ2RmSCnPbJfrUYJfogrE4OiHQTZ4LXpop+eer1w==
 
 "@types/hast@^3.0.0", "@types/hast@^3.0.4":
   version "3.0.4"

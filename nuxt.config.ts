@@ -2,8 +2,7 @@
 
 import tailwindcss from "@tailwindcss/vite";
 
-const siteUrl =
-  process.env.NUXT_PUBLIC_SITE_URL || "https://your-domain.com";
+const siteUrl = "https://diamondbluepoolspabradenton.com";
 
 const siteName = "Diamond Blue Pool Services";
 
@@ -12,11 +11,10 @@ const siteDescription =
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-01-01",
-
+  ssr: false,
   devtools: {
     enabled: false,
   },
-
   css: [
     "~/assets/css/main.css",
   ],
@@ -48,9 +46,9 @@ export default defineNuxtConfig({
   },
 
   // Para eliminar el warning de og-image (si no usas generación dinámica)
-  ogImage: {
-    zeroRuntime: true,
-  },
+ogImage: {
+  zeroRuntime: true,
+},
 
   app: {
     head: {
@@ -215,17 +213,17 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "/favicon.ico",
+          href: "favicon.ico",
         },
 
         {
           rel: "apple-touch-icon",
-          href: "/apple-touch-icon.png",
+          href: "apple-touch-icon.png",
         },
 
         {
           rel: "manifest",
-          href: "/site.webmanifest",
+          href: "site.webmanifest",
         },
 
         {
@@ -255,4 +253,8 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
   },
+
+  robots: {
+    robotsTxt: false
+  }
 });
