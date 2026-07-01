@@ -11,10 +11,13 @@ const siteDescription =
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-01-01",
+
   ssr: false,
+
   devtools: {
     enabled: false,
   },
+
   css: [
     "~/assets/css/main.css",
   ],
@@ -29,7 +32,7 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
     "nuxt-og-image",
-    "@nuxt/image", // <--- AÑADIDO
+    "@nuxt/image",
   ],
 
   runtimeConfig: {
@@ -45,10 +48,9 @@ export default defineNuxtConfig({
     name: siteName,
   },
 
-  // Para eliminar el warning de og-image (si no usas generación dinámica)
-ogImage: {
-  zeroRuntime: true,
-},
+  ogImage: {
+    zeroRuntime: true,
+  },
 
   app: {
     head: {
@@ -213,17 +215,24 @@ ogImage: {
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "favicon.ico",
+          href: "/favicon.ico",
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          "sizes": "64x64",
+          href: "/favicon.png",
         },
 
         {
           rel: "apple-touch-icon",
-          href: "apple-touch-icon.png",
+          href: "/apple-touch-icon.png",
         },
 
         {
           rel: "manifest",
-          href: "site.webmanifest",
+          href: "/site.webmanifest",
         },
 
         {
@@ -255,6 +264,6 @@ ogImage: {
   },
 
   robots: {
-    robotsTxt: false
-  }
+    robotsTxt: false,
+  },
 });
