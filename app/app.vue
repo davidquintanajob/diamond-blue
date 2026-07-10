@@ -277,139 +277,139 @@
     </section>
 
     <!-- Gallery -->
-    <section id="gallery" class="py-16 md:py-20 bg-[#EDF7FF] relative">
-      <div class="absolute left-0 w-full overflow-hidden pointer-events-none -top-10 md:-top-10 h-10 md:h-16"
-        style="z-index:1;">
-        <svg viewBox="0 0 2400 80" preserveAspectRatio="none" class="block h-full w-[150%] sm:w-[170%] md:w-[200%]"
-          style="animation: waveMove 8s linear infinite;">
-          <path d="M0,0 C200,40 400,0 600,40 C800,0 1000,40 1200,0 L1200,80 L0,80 Z" fill="#EDF7FF" />
-          <path d="M1200,0 C1400,40 1600,0 1800,40 C2000,0 2200,40 2400,0 L2400,80 L1200,80 Z" fill="#EDF7FF" />
-        </svg>
-      </div>
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <h2 class="text-3xl md:text-4xl text-center font-bold text-[#003B8E] mb-8 md:mb-10 animate-fade-up">{{
-          t('gallery.title') }}</h2>
-        <h3 class="text-2xl font-semibold text-[#003B8E] mb-4">{{ t('gallery.residential') }}</h3>
-        <div class="relative overflow-hidden rounded-2xl shadow-xl mb-12 group carousel-container">
-          <div class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
-            :style="{ transform: `translateX(-${residentialIndex * (100 / residentialSlidesPerView)}%)` }">
-            <div v-for="(img, idx) in residentialImages" :key="idx"
-              class="min-w-full md:min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-black/10 cursor-pointer relative overflow-hidden group/image"
-              @click="openLightbox(img)">
-              <NuxtImg :src="img"
-                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105"
-                :alt="'Residential pool ' + (idx + 1)" loading="lazy" />
-              <div
-                class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="white" class="w-12 h-12 drop-shadow-lg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute inset-0 pointer-events-none overflow-hidden">
-                <div
-                  class="absolute -inset-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/image:translate-x-full transition-transform duration-1000 ease-in-out">
-                </div>
-              </div>
+<section id="gallery" class="py-16 md:py-20 bg-[#EDF7FF] relative">
+  <div class="absolute left-0 w-full overflow-hidden pointer-events-none -top-10 md:-top-10 h-10 md:h-16"
+    style="z-index:1;">
+    <svg viewBox="0 0 2400 80" preserveAspectRatio="none" class="block h-full w-[150%] sm:w-[170%] md:w-[200%]"
+      style="animation: waveMove 8s linear infinite;">
+      <path d="M0,0 C200,40 400,0 600,40 C800,0 1000,40 1200,0 L1200,80 L0,80 Z" fill="#EDF7FF" />
+      <path d="M1200,0 C1400,40 1600,0 1800,40 C2000,0 2200,40 2400,0 L2400,80 L1200,80 Z" fill="#EDF7FF" />
+    </svg>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h2 class="text-3xl md:text-4xl text-center font-bold text-[#003B8E] mb-8 md:mb-10 animate-fade-up">{{
+      t('gallery.title') }}</h2>
+    <h3 class="text-2xl font-semibold text-[#003B8E] mb-4">{{ t('gallery.residential') }}</h3>
+    <div class="relative overflow-hidden rounded-2xl shadow-xl mb-12 group carousel-container">
+      <div class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+        :style="{ transform: `translateX(-${residentialIndex * (100 / residentialSlidesPerView)}%)` }">
+        <div v-for="(img, idx) in residentialImages" :key="idx"
+          class="min-w-full md:min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-white cursor-pointer relative overflow-hidden group/image p-2 md:p-3 rounded-xl shadow-md"
+          @click="openLightbox(img)">
+          <NuxtImg :src="img"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105 rounded-lg"
+            :alt="'Residential pool ' + (idx + 1)" loading="lazy" />
+          <div
+            class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+            <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="white" class="w-12 h-12 drop-shadow-lg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
             </div>
           </div>
-          <!-- Botones anterior/siguiente con aria-label -->
-          <button @click="prevResidential"
-            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
-            :aria-label="t('carousel.prev')">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-              stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button @click="nextResidential"
-            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
-            :aria-label="t('carousel.next')">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-              stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-          <!-- Indicadores con aria-label y aria-current -->
-          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-            <button v-for="(_, idx) in Math.ceil(residentialImages.length / residentialSlidesPerView)" :key="idx"
-              @click="residentialIndex = idx * residentialSlidesPerView"
-              class="w-5 h-5 rounded-full transition-all duration-300 p-1 flex items-center justify-center"
-              :class="Math.floor(residentialIndex / residentialSlidesPerView) === idx ? 'bg-[#003B8E]' : 'bg-white/50'"
-              :aria-label="t('carousel.goTo', { index: idx + 1 })"
-              :aria-current="Math.floor(residentialIndex / residentialSlidesPerView) === idx ? 'true' : null">
-              <span class="sr-only">{{ t('carousel.goTo', { index: idx + 1 }) }}</span>
-            </button>
+          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div
+              class="absolute -inset-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/image:translate-x-full transition-transform duration-1000 ease-in-out">
+            </div>
           </div>
         </div>
+      </div>
+      <!-- Botones anterior/siguiente con aria-label -->
+      <button @click="prevResidential"
+        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
+        :aria-label="t('carousel.prev')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button @click="nextResidential"
+        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
+        :aria-label="t('carousel.next')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      <!-- Indicadores con aria-label y aria-current -->
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+        <button v-for="(_, idx) in Math.ceil(residentialImages.length / residentialSlidesPerView)" :key="idx"
+          @click="residentialIndex = idx * residentialSlidesPerView"
+          class="w-5 h-5 rounded-full transition-all duration-300 p-1 flex items-center justify-center"
+          :class="Math.floor(residentialIndex / residentialSlidesPerView) === idx ? 'bg-[#003B8E]' : 'bg-white/50'"
+          :aria-label="t('carousel.goTo', { index: idx + 1 })"
+          :aria-current="Math.floor(residentialIndex / residentialSlidesPerView) === idx ? 'true' : null">
+          <span class="sr-only">{{ t('carousel.goTo', { index: idx + 1 }) }}</span>
+        </button>
+      </div>
+    </div>
 
-        <h3 class="text-2xl font-semibold text-[#003B8E] mb-4">{{ t('gallery.spa') }}</h3>
-        <div class="relative overflow-hidden rounded-2xl shadow-xl group carousel-container">
-          <div class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
-            :style="{ transform: `translateX(-${spaIndex * (100 / spaSlidesPerView)}%)` }">
-            <div v-for="(img, idx) in spaImages" :key="idx"
-              class="min-w-full md:min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-black/10 cursor-pointer relative overflow-hidden group/image"
-              @click="openLightbox(img)">
-              <NuxtImg :src="img"
-                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105"
-                :alt="'Spa or personal pool ' + (idx + 1)" loading="lazy" />
-              <div
-                class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="white" class="w-12 h-12 drop-shadow-lg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute inset-0 pointer-events-none overflow-hidden">
-                <div
-                  class="absolute -inset-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/image:translate-x-full transition-transform duration-1000 ease-in-out">
-                </div>
-              </div>
+    <h3 class="text-2xl font-semibold text-[#003B8E] mb-4">{{ t('gallery.spa') }}</h3>
+    <div class="relative overflow-hidden rounded-2xl shadow-xl group carousel-container">
+      <div class="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+        :style="{ transform: `translateX(-${spaIndex * (100 / spaSlidesPerView)}%)` }">
+        <div v-for="(img, idx) in spaImages" :key="idx"
+          class="min-w-full md:min-w-[33.333%] h-80 md:h-[400px] flex items-center justify-center bg-white cursor-pointer relative overflow-hidden group/image p-2 md:p-3 rounded-xl shadow-md"
+          @click="openLightbox(img)">
+          <NuxtImg :src="img"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105 rounded-lg"
+            :alt="'Spa or personal pool ' + (idx + 1)" loading="lazy" />
+          <div
+            class="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+            <div class="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="white" class="w-12 h-12 drop-shadow-lg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
             </div>
           </div>
-          <button @click="prevSpa"
-            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
-            :aria-label="t('carousel.prev')">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-              stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button @click="nextSpa"
-            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
-            :aria-label="t('carousel.next')">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-              stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-            <button v-for="(_, idx) in Math.ceil(spaImages.length / spaSlidesPerView)" :key="idx"
-              @click="spaIndex = idx * spaSlidesPerView"
-              class="w-5 h-5 rounded-full transition-all duration-300 p-1 flex items-center justify-center"
-              :class="Math.floor(spaIndex / spaSlidesPerView) === idx ? 'bg-[#003B8E]' : 'bg-white/50'"
-              :aria-label="t('carousel.goTo', { index: idx + 1 })"
-              :aria-current="Math.floor(spaIndex / spaSlidesPerView) === idx ? 'true' : null">
-              <span class="sr-only">{{ t('carousel.goTo', { index: idx + 1 }) }}</span>
-            </button>
+          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div
+              class="absolute -inset-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/image:translate-x-full transition-transform duration-1000 ease-in-out">
+            </div>
           </div>
         </div>
       </div>
-      <div class="absolute left-0 w-full overflow-hidden pointer-events-none -bottom-10 md:-bottom-10 h-10 md:h-16"
-        style="z-index:1;">
-        <svg viewBox="0 0 2400 80" preserveAspectRatio="none" class="block h-full w-[150%] sm:w-[170%] md:w-[200%]"
-          style="animation: waveMove 8s linear infinite;">
-          <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,0 L0,0 Z" fill="#EDF7FF" />
-          <path d="M1200,40 C1400,0 1600,80 1800,40 C2000,0 2200,80 2400,40 L2400,0 L1200,0 Z" fill="#EDF7FF" />
+      <button @click="prevSpa"
+        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
+        :aria-label="t('carousel.prev')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
+      </button>
+      <button @click="nextSpa"
+        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#003B8E] rounded-full p-2 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100 z-30 hover:scale-110"
+        :aria-label="t('carousel.next')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+        <button v-for="(_, idx) in Math.ceil(spaImages.length / spaSlidesPerView)" :key="idx"
+          @click="spaIndex = idx * spaSlidesPerView"
+          class="w-5 h-5 rounded-full transition-all duration-300 p-1 flex items-center justify-center"
+          :class="Math.floor(spaIndex / spaSlidesPerView) === idx ? 'bg-[#003B8E]' : 'bg-white/50'"
+          :aria-label="t('carousel.goTo', { index: idx + 1 })"
+          :aria-current="Math.floor(spaIndex / spaSlidesPerView) === idx ? 'true' : null">
+          <span class="sr-only">{{ t('carousel.goTo', { index: idx + 1 }) }}</span>
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+  <div class="absolute left-0 w-full overflow-hidden pointer-events-none -bottom-10 md:-bottom-10 h-10 md:h-16"
+    style="z-index:1;">
+    <svg viewBox="0 0 2400 80" preserveAspectRatio="none" class="block h-full w-[150%] sm:w-[170%] md:w-[200%]"
+      style="animation: waveMove 8s linear infinite;">
+      <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,0 L0,0 Z" fill="#EDF7FF" />
+      <path d="M1200,40 C1400,0 1600,80 1800,40 C2000,0 2200,80 2400,40 L2400,0 L1200,0 Z" fill="#EDF7FF" />
+    </svg>
+  </div>
+</section>
 
     <!-- Transformations (Before & After) -->
     <section id="transformations" class="py-16 md:py-20 bg-white">
@@ -989,9 +989,9 @@ function handleResize() {
 
 // Pares de imágenes para Transformaciones
 const beforeAfterPairs = [
-  { before: 'beforeandafter/1.jpg', after: 'beforeandafter/2.jpg' },
-  { before: 'beforeandafter/4.jpeg', after: 'beforeandafter/3.jpeg' },
-  { before: 'beforeandafter/6.jpeg', after: 'beforeandafter/5.jpeg' },
+  { before: 'beforeandafter/2.jpg', after: 'beforeandafter/1.jpg' },
+  { before: 'beforeandafter/3.jpeg', after: 'beforeandafter/4.jpeg' },
+  { before: 'beforeandafter/5.jpeg', after: 'beforeandafter/6.jpeg' },
   { before: 'beforeandafter/8.jpeg', after: 'beforeandafter/7.jpeg' }
 ]
 
